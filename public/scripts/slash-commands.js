@@ -3916,7 +3916,6 @@ function getModelOptions(quiet) {
         { id: 'mancer_model', api: 'textgenerationwebui', type: textgen_types.MANCER },
         { id: 'vllm_model', api: 'textgenerationwebui', type: textgen_types.VLLM },
         { id: 'aphrodite_model', api: 'textgenerationwebui', type: textgen_types.APHRODITE },
-        { id: 'arliai_model', api: 'textgenerationwebui', type: textgen_types.ARLIAI },
         { id: 'ollama_model', api: 'textgenerationwebui', type: textgen_types.OLLAMA },
         { id: 'tabby_model', api: 'textgenerationwebui', type: textgen_types.TABBY },
         { id: 'featherless_model', api: 'textgenerationwebui', type: textgen_types.FEATHERLESS },

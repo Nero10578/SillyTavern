@@ -53,7 +53,6 @@ const API_01AI = 'https://api.01.ai/v1';
 const API_BLOCKENTROPY = 'https://api.blockentropy.ai/v1';
 const API_AI21 = 'https://api.ai21.com/studio/v1';
 const API_NANOGPT = 'https://nano-gpt.com/api/v1';
-const API_ARLIAI = 'https://api.arliai.com/v1';
 const API_DEEPSEEK = 'https://api.deepseek.com/beta';
 
 /**
@@ -776,10 +775,6 @@ router.post('/status', jsonParser, async function (request, response_getstatus_o
         api_url = API_NANOGPT;
         api_key_openai = readSecret(request.user.directories, SECRET_KEYS.NANOGPT);
         headers = {};
-    } else if (request.body.chat_completion_source === CHAT_COMPLETION_SOURCES.ARLIAI) {
-        api_url = API_ARLIAI;
-        api_key_openai = readSecret(request.user.directories, SECRET_KEYS.ARLIAI);
-        headers = {};
     } else if (request.body.chat_completion_source === CHAT_COMPLETION_SOURCES.DEEPSEEK) {
         api_url = new URL(request.body.reverse_proxy || API_DEEPSEEK.replace('/beta', ''));
         api_key_openai = request.body.reverse_proxy ? request.body.proxy_password : readSecret(request.user.directories, SECRET_KEYS.DEEPSEEK);
@@ -1056,11 +1051,6 @@ router.post('/generate', jsonParser, function (request, response) {
     } else if (request.body.chat_completion_source === CHAT_COMPLETION_SOURCES.NANOGPT) {
         apiUrl = API_NANOGPT;
         apiKey = readSecret(request.user.directories, SECRET_KEYS.NANOGPT);
-        headers = {};
-        bodyParams = {};
-    } else if (request.body.chat_completion_source === CHAT_COMPLETION_SOURCES.ARLIAI) {
-        apiUrl = API_ARLIAI;
-        apiKey = readSecret(request.user.directories, SECRET_KEYS.ARLIAI);
         headers = {};
         bodyParams = {};
     } else if (request.body.chat_completion_source === CHAT_COMPLETION_SOURCES.ZEROONEAI) {
